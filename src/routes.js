@@ -8,10 +8,7 @@ const Routes = () => {
       <Router>
         <Switch>
           <Route exact path="/users" component={Users} />
-<<<<<<< HEAD
-=======
           <Route exact path="/cars" component={Cars} />
->>>>>>> bdefedbc1eb180348e2427e23b6d752ce21ed84c
         </Switch>
       </Router>
     </Fragment>
