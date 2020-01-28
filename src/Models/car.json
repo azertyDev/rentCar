@@ -1,0 +1,14 @@
+[
+  {
+    "carId": 1,
+    "model": "BMW"
+  },
+  {
+    "carId": 2,
+    "model": "Chevrolet"
+  },
+  {
+    "carId": 3,
+    "model": "Mercedes-Benz"
+  }
+]

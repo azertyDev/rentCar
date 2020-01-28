@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "John",
+    "permission": {
+      "create": true,
+      "update": false,
+      "delete": true
+    },
+    "cars": [
+      {
+        "carId": 2
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Tom",
+    "permission": {
+      "create": false,
+      "update": false,
+      "delete": false
+    },
+    "cars": [
+      {
+        "carId": 1
+      }
+    ]
+  }
+]
