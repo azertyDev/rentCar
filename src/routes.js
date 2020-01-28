@@ -6,7 +6,7 @@ const Routes = () => {
     <Fragment>
       <Router>
         <Switch>
-          <Route path="/users" component={Users} />
+          <Route exact path="/users" component={Users} />
         </Switch>
       </Router>
     </Fragment>
