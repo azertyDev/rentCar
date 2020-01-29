@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
-import {loginMidd} from '../../Redux/Middleware/loginMidd';
+import { Button } from "antd";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { loginMidd } from "../../Redux/Middleware/loginMidd";
 function Login(props) {
   const [login, setLogin] = useState({ email: "", password: "" });
   const onChangeLogin = e => {
@@ -14,16 +15,13 @@ function Login(props) {
 
   const loginFunc = e => {
     e.preventDefault();
-    props.login({...login})
+    props.login({ ...login });
   };
-  let {pending, user, err}= props.logins;
-  if(pending){
-      return <h1>Loading ....</h1>
-  }
-  if(Object.keys(user).length >0){
-      if(user.email === 'akbarbobomurod@gmail.com' && user.password === 'akbar00'){
-         return <Redirect to="/users" />
-      }
+  let { pending, user, err } = props.logins;
+  if (Object.keys(user).length > 0) {
+    if (user.email === "car@gmail.com" && user.password === "car00") {
+      return <Redirect to="/users" />;
+    }
   }
   return (
     <div
@@ -72,12 +70,16 @@ function Login(props) {
                     onChange={onChangeLogin}
                   />
                 </div>
-                <button
-                  type="submit"
-                  className="btn btn-primary mb-4 btn-block"
-                >
-                  SIGN IN
-                </button>
+                {pending ? (
+                  <Button loading />
+                ) : (
+                  <button
+                    type="submit"
+                    className="btn btn-primary mb-4 btn-block"
+                  >
+                    SIGN IN
+                  </button>
+                )}
               </form>
             </div>
           </div>
@@ -87,17 +89,16 @@ function Login(props) {
   );
 }
 
-const mapStateToProps=({logins})=>{
-    const {email, password} =logins;
-    return{
-       logins
+const mapStateToProps = ({ logins }) => {
+  return {
+    logins
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    login({ email, password }) {
+      dispatch(loginMidd({ email, password }));
     }
-}
-const mapDispatchToProps=(dispatch)=>{
-    return{
-        login({email, password}){
-           dispatch(loginMidd({email, password}))
-        }
-    }
-}
+  };
+};
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -1,48 +1,43 @@
 import React, { Component } from "react";
-import UsersData from "../../Models/user.json";
+import { Row, Col } from "antd";
+import { connect } from "react-redux";
+import { userLoadMidd } from "../../Redux/Middleware/userMidd";
+import Dashboard from "../../Hoc/dashboard";
+import TableComponent from "../../Components/Table/table";
+class UsersComponent extends Component {
 
-class Users extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      users: [...UsersData]
-    };
-    this.delete = this.delete.bind(this);
+  componentDidMount() {
+    this.props.fetch();
   }
-  delete(id) {
-    let users = this.state.users.filter(item => {
-      return item.id !== Number(id);
-    });
-    this.setState({
-      users: [...users]
-    });
-  }
+ 
   render() {
+    const { pending, data, err } = this.props.users;
     return (
-      <div className="container-fluid">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Permision</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.users.map((item, id) => (
-              <tr>
-                <th scope="row">{id+1}</th>
-                <td>{item.name}</td>
-                <td>permision</td>
-                <td><button type="button" className="btn" onClick={()=>this.delete(id+1)}>Delete</button></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <Row>
+        {pending ? (
+          <h1>Loading...</h1>
+        ) : (
+          <Col md={24}>
+            <TableComponent data={data}/>
+          </Col>
+        )}
+      </Row>
     );
   }
 }
 
-export default Users;
+const mapStateToProps = ({ users }) => {
+  return {
+    users
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    fetch() {
+      dispatch(userLoadMidd());
+    }
+  };
+};
+const Users = connect(mapStateToProps, mapDispatchToProps)(UsersComponent);
+
+export default Dashboard(Users);
