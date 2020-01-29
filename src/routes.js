@@ -8,7 +8,7 @@ const Routes = () => {
     <Fragment>
       <Router>
         <Switch>
-            <Route exact path="/" component={Login} />
+          <Route exact path="/" component={Login} />
           <Route exact path="/users" component={Users} />
           <Route exact path="/cars/:name" component={Cars} />
         </Switch>
