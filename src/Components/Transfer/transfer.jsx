@@ -116,7 +116,7 @@ class DragAndDrop extends Component {
   // But in this example everything is just done in one place for simplicity
   render() {
     return (
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex" }} id="transfer">
         <DragDropContext onDragEnd={this.onDragEnd}>
           <Droppable droppableId="droppable">
             {(provided, snapshot) => (

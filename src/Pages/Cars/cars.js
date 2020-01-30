@@ -1,6 +1,6 @@
 import React from 'react';
 import CarsData from '../../Models/car';
-
+import Dashboard from '../../Hoc/dashboard';
 class Cars extends React.Component {
     constructor(props) {
         super(props);
@@ -26,4 +26,4 @@ class Cars extends React.Component {
     }
 }
 
-export default Cars;
+export default  Dashboard(Cars);
