@@ -1,4 +1,4 @@
-import { usersCon, deleteCon, modalCon } from "../Const/user";
+import { usersCon, deleteCon, modalCon, drawCon } from "../Const/user";
 
 // modal visible
 
@@ -14,6 +14,18 @@ export function modalShow({ visible, text, action, id }) {
   };
 }
 
+// draw visible
+
+export function drawShow(visible,id){
+  return{
+    type:drawCon.visible,
+    payload:{
+      id,
+      visible
+    }
+  }
+}
+
 // read all data
 const reqLoadFunc = () => {
   return {
@@ -23,6 +35,7 @@ const reqLoadFunc = () => {
 };
 
 const recLoadFunc = data => {
+
   return {
     type: usersCon.receive,
     payload: [...data]

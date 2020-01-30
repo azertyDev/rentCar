@@ -10,14 +10,13 @@ function Login(props) {
     setLogin(prevState => {
       return { ...prevState, [name]: value };
     });
-    console.log(login);
   };
 
   const loginFunc = e => {
     e.preventDefault();
     props.login({ ...login });
   };
-  let { pending, user, err } = props.logins;
+  let { pending, user,} = props.logins;
   if (Object.keys(user).length > 0) {
     if (user.email === "car@gmail.com" && user.password === "car00") {
       return <Redirect to="/users" />;

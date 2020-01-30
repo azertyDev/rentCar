@@ -9,6 +9,7 @@ const initialState = {
   }
 };
 function userReducer(state = { ...initialState }, { type, payload }) {
+
   switch (type) {
     case usersCon.request:
       return {

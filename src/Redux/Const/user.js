@@ -13,3 +13,7 @@ export const deleteCon={
 export const modalCon={
     visible:"MODAL_VISIBLE_SUCCESS"
 }
+
+export const drawCon={
+  visible:"DRAW_VISIBLE_SUCCESS"
+}
