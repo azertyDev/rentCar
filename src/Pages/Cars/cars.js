@@ -1,7 +1,7 @@
 import React from 'react';
 // import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import CarsData from '../../Models/car';
-
+import Dashboard from '../../Hoc/dashboard';
 class Cars extends React.Component {
     constructor(props) {
         super(props);
@@ -27,4 +27,4 @@ class Cars extends React.Component {
     }
 }
 
-export default Cars;
+export default  Dashboard(Cars);

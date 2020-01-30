@@ -1,28 +1,35 @@
-import React from 'react';
-import Select from 'react-select';
- 
+import React from "react";
+import Select from "react-select";
+
 const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
+  { value: "chocolate", label: "Chocolate" },
+  { value: "strawberry", label: "Strawberry" },
+  { value: "vanilla", label: "Vanilla" }
 ];
- 
+
 class ReselectComponent extends React.Component {
   state = {
-    selectedOption:   { value: 'chocolate', label: 'Chocolate' },
+    selectedOption: [...this.props.selectArray]
   };
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.selectArray !== this.props.selectArray) {
+      this.setState({
+        selectedOption: this.props.selectArray
+      });
+    }
+  }
   handleChange = selectedOption => {
-    this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption);
+    this.props.handleSelect(selectedOption);
   };
   render() {
     const { selectedOption } = this.state;
- 
+    console.log(selectedOption);
     return (
       <Select
-        value={selectedOption}
+        value={this.props.selected}
         onChange={this.handleChange}
-        options={options}
+        options={this.props.normalCarData}
         isMulti
       />
     );

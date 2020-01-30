@@ -18,9 +18,12 @@ function Login(props) {
   };
   let { pending, user,} = props.logins;
   if (Object.keys(user).length > 0) {
-    if (user.email === "car@gmail.com" && user.password === "car00") {
+    if (user.email === "car@gmail.com" && user.password === "car00" || user.email==='admin2@gmail.com') {
       return <Redirect to="/users" />;
     }
+  }
+  if (Object.keys(user).length > 0) {
+      return <Redirect to={`/cars/${login.email}`} />;
   }
   return (
     <div
