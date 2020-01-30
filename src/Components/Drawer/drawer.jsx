@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { drawShow } from "../../Redux/Action/users";
 import FormaComponent from "../../Components/Forma/forma";
 import DragAndDrop from "../../Components/Transfer/transfer";
+import ReselectComponent from "../../Components/Reselect/reselect";
 class DrawerComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -76,6 +77,7 @@ class DrawerComponent extends React.Component {
         >
           <FormaComponent user={user} />
           <DragAndDrop normalizedData={normalizedData} />
+          <ReselectComponent />
         </Drawer>
       </div>
     );
