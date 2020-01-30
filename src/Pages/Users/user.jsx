@@ -36,7 +36,7 @@ class Users extends Component {
                 <td>{item.name}</td>
                 <td>permision</td>
                 <td><button type="button" className="btn" onClick={()=>this.delete(id+1)}>Delete</button></td>
-              </tr>
+              </tr> 
             ))}
           </tbody>
         </table>
