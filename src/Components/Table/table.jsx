@@ -2,13 +2,13 @@ import React from "react";
 import { Table, Button } from "antd";
 import { connect } from "react-redux";
 import { deleteUserMidd } from "../../Redux/Middleware/userMidd";
-import { modalShow } from "../../Redux/Action/users";
+import { modalShow , drawShow} from "../../Redux/Action/users";
 import ModalComponent from "../../Components/Modal/modal";
 const TableComponent = props => {
   const columns = [
-    {
-      title: "Id",
-      dataIndex: "id"
+    { 
+      title: "Userid",
+      dataIndex: "userid"
     },
     {
       title: "Name",
@@ -28,15 +28,15 @@ const TableComponent = props => {
               onClick={() =>
                 props.modal({
                   visible: true,
-                  text: "Uchirishga aminmisiz",
+                  text: "Ushbu foydalanuvchini uchirishga aminmisiz: ",
                   action: "delete",
-                  id:parseInt(record.id)
+                  id:parseInt(record.userid)
                 })
               }
             >
               Delete
             </Button>
-            <Button>Edit</Button>
+            <Button onClick={()=>props.draw(true, record.userid)}>Edit</Button>
           </span>
         );
       }
@@ -65,6 +65,9 @@ const mapDispatchToProps = dispatch => {
     },
     modal({ visible, text, action, id }) {
       dispatch(modalShow({ visible, text, action, id }));
+    },
+    draw(visible, id){
+      dispatch(drawShow(visible, id))
     }
   };
 };

@@ -1,12 +1,16 @@
 [
   {
-    "id": 1,
+    "userid": 1,
     "name": "John",
     "email":"john@gmail.com",
     "permission": {
-      "create": true,
-      "update": false,
-      "delete": true
+      "permision1": true,
+      "permision2": false,
+      "permision3": true,
+      "permision4":true,
+      "permision5":false,
+      "permision6":false,
+      "permision7":true
     },
     "cars": [
       {
@@ -15,13 +19,17 @@
     ]
   },
   {
-    "id": 2,
+    "userid": 2,
     "name": "Tom",
     "email":"tom@gmail.com",
     "permission": {
-      "create": false,
-      "update": false,
-      "delete": false
+      "permision1": false,
+      "permision2": true,
+      "permision3": true,
+      "permision4":false,
+      "permision5":true,
+      "permision6":false,
+      "permision7":true
     },
     "cars": [
       {

@@ -26,9 +26,9 @@ class ModalComponent extends React.Component {
     this.props.delete(id);
   }
   render() {
-    const { visible, text, action, id } = _.get(this.props.modals, "modal");
+    const { visible, text, id } = _.get(this.props.modals, "modal");
     let user = _.get(this.props, "users.data").filter(item => {
-      return item.id === id;
+      return item.userid === id;
     });
     let loadingButton = _.get(this.props.users, "delete.pending");
     return (
@@ -41,9 +41,9 @@ class ModalComponent extends React.Component {
           {user.length > 0 ? (
             <div>
               {text}
-              <p>{user[0].name}</p>
+              <b style={{paddingRight:'10px'}}>{user[0].name}</b>
               <Button
-                onClick={() => this.deleteCom(parseInt(user[0].id))}
+                onClick={() => this.deleteCom(parseInt(user[0].userid))}
                 loading={loadingButton}
               >
                 delete

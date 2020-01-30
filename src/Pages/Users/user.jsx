@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { userLoadMidd } from "../../Redux/Middleware/userMidd";
 import Dashboard from "../../Hoc/dashboard";
 import TableComponent from "../../Components/Table/table";
+import DrawerComponent from '../../Components/Drawer/drawer';
 class UsersComponent extends Component {
 
   componentDidMount() {
@@ -12,6 +13,7 @@ class UsersComponent extends Component {
  
   render() {
     const { pending, data, err } = this.props.users;
+
     return (
       <Row>
         {pending ? (
@@ -19,6 +21,7 @@ class UsersComponent extends Component {
         ) : (
           <Col md={24}>
             <TableComponent data={data}/>
+            <DrawerComponent/>
           </Col>
         )}
       </Row>
