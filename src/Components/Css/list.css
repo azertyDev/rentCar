@@ -1,0 +1,62 @@
+.list_self {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.list_self > div {
+  width: 100%;
+  height: 50%;
+  display: flex;
+}
+
+.list_self > div > b {
+  padding-right: 20px;
+}
+.transfer_self {
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  margin-top: 20px;
+  background-color: #d3d3d3;
+  border-radius: 4px;
+}
+.transfer_self > div {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.transfer_self > div > div {
+  width: 90%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #808080;
+  margin: 10px;
+  border-radius: 4px;
+}
+
+.car_list {
+  width: 100%;
+  min-height: 50px;
+  background-color: #d3d3d3;
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 4px;
+}
+.car_list > div {
+  width: 24%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #808080;
+  height: 50px;
+  border-radius: 4px;
+  margin: 5px;
+}

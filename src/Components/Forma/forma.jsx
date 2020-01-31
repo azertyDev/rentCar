@@ -24,10 +24,14 @@ const FormaComponent = props => {
       >
         {({ errors, touched }) => (
           <Form>
+          <div className="form_element">
             <Field name="name" />
             {errors.name && touched.name ? <div>{errors.name}</div> : null}
+           </div>
+           <div className="form_element">
             <Field name="email" type="email" />
             {errors.email && touched.email ? <div>{errors.email}</div> : null}
+            </div>
           </Form>
         )}
       </Formik>
