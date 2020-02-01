@@ -1,0 +1,21 @@
+.left-per{
+    background-color: #b7eb8f !important;
+    /* color: red; */
+}
+
+.per{
+    color: white;
+    border-radius: 10px;
+    background-color: #73d13d !important;
+}
+
+
+.right-per{
+    background-color: #ff7875 !important;
+}
+
+.per2{
+    color: white;
+    border-radius: 10px;
+    background-color: #ff4d4f !important;
+}
