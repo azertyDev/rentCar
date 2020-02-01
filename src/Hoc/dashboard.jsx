@@ -3,12 +3,14 @@ import { Layout, Menu, Icon } from "antd";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import "./dashboard.css";
+import { Link } from "react-router-dom";
 const { Header, Content, Footer, Sider } = Layout;
 
 const DashboardComponent = InitialComponent => {
   class UpdatedComponent extends Component {
     render() {
       const { user } = this.props.logins;
+      console.log(user.email);
       return (
         <Layout style={{ minHeight: "100vh" }}>
           <Sider
@@ -21,22 +23,30 @@ const DashboardComponent = InitialComponent => {
             <Menu theme="dark" mode="inline" defaultSelectedKeys={["4"]}>
               <Menu.Item key="1">
                 <Icon type="user" />
-                <span className="nav-text">nav 1</span>
+                <span className="nav-text">
+                  <Link to="/admin">Users</Link>
+                </span>
               </Menu.Item>
               <Menu.Item key="2">
                 <Icon type="video-camera" />
-                <span className="nav-text">nav 2</span>
+                <span className="nav-text">Cars</span>
               </Menu.Item>
-              {user.email === "admin2@gmail.com" ? null : (
+              {localStorage.getItem('email') === "admin2@gmail.com" ? (
                 <Menu.Item key="3">
                   <Icon type="upload" />
-                  <span className="nav-text">nav 3</span>
+                  <span className="nav-text">Admin 2</span>
+                </Menu.Item>
+              ) : localStorage.getItem('email') === "admin@gmail.com" ? (
+                <Menu.Item key="3">
+                  <Icon type="upload" />
+                  <span className="nav-text">Admin</span>
+                </Menu.Item>
+              ) : (
+                <Menu.Item key="3">
+                  <Icon type="upload" />
+                  <span className="nav-text">Oddiy Foydalanuvchi</span>
                 </Menu.Item>
               )}
-              <Menu.Item key="4">
-                <Icon type="user" />
-                <span className="nav-text">nav 4</span>
-              </Menu.Item>
             </Menu>
           </Sider>
           <Layout style={{ minHeight: "70vh" }}>

@@ -1,5 +1,4 @@
-import { modalCon } from "../Const/user";
-import { drawCon } from "../Const/user";
+import { modalCon ,drawCon, showDataCon, addDrawCon} from "../Const/user";
 const initialState = {
   modal: {
     visible: false,
@@ -10,7 +9,12 @@ const initialState = {
   draw: {
     id: null,
     visible: false
-  }
+  },
+  drawData:{
+    id:null,
+    visible:false
+  },
+  addDraw:false
 };
 
 function modalReducer(state = { ...initialState }, { type, payload }) {
@@ -27,6 +31,18 @@ function modalReducer(state = { ...initialState }, { type, payload }) {
           ...payload
         }
       };
+    case showDataCon.visible:
+      return{
+        ...state,
+        drawData:{
+          ...payload
+        }
+      }
+    case addDrawCon.visible:
+      return{
+        ...state,
+        addDraw:payload
+      }
     default:
       return {
         ...state
