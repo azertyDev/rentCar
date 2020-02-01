@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-
+import './transfer.css';
 // fake data generator
 
 // a little function to help us with reordering the result
@@ -116,18 +116,19 @@ class DragAndDrop extends Component {
   // But in this example everything is just done in one place for simplicity
   render() {
     return (
-      <div style={{ display: "flex" }} id="transfer">
+      <div  style={{ display: "flex" }} id="transfer">
         <DragDropContext onDragEnd={this.onDragEnd}>
           <Droppable droppableId="droppable">
             {(provided, snapshot) => (
               <div
                 ref={provided.innerRef}
-                style={getListStyle(snapshot.isDraggingOver)}
+                 style={getListStyle(snapshot.isDraggingOver)}
+                className="left-per"
               >
                 {this.state.items.map((item, index) => (
                   <Draggable key={item.id} draggableId={item.id} index={index}>
                     {(provided, snapshot) => (
-                      <div
+                      <div className="per"
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
@@ -150,11 +151,12 @@ class DragAndDrop extends Component {
               <div
                 ref={provided.innerRef}
                 style={getListStyle(snapshot.isDraggingOver)}
+                className="right-per"
               >
                 {this.state.selected.map((item, index) => (
                   <Draggable key={item.id} draggableId={item.id} index={index}>
                     {(provided, snapshot) => (
-                      <div
+                      <div className="per2"
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}

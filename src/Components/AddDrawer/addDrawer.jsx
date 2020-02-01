@@ -10,7 +10,7 @@ import ReselectComponent from "../Reselect/reselect";
 import CarData from "../../Models/car.json";
 import { addUserMidd } from "../../Redux/Middleware/userMidd";
 import "../Css/drawer.css";
-
+import "../Transfer/transfer.css"
 let user = {
   permission: {
     permision1: true,
