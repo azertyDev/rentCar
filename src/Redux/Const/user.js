@@ -24,6 +24,16 @@ export const editCon = {
   err: "ERR_PEOPLE_EDIT"
 };
 
-export const showDataCon={
-  visible:"SHOW_DATA_SUCCESS"
-}
+export const showDataCon = {
+  visible: "SHOW_DATA_SUCCESS"
+};
+
+export const addDrawCon = {
+  visible: "ADD_ITEM_SUCCESS_DRAW"
+};
+
+export const addCon = {
+  request: "ADD_USER_REQUEST",
+  receive: "ADD_USER_SUCCESS",
+  err: "ADD_USER_ERROR"
+};

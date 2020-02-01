@@ -4,7 +4,9 @@ import {
   modalCon,
   drawCon,
   editCon,
-  showDataCon
+  showDataCon,
+  addDrawCon,
+  addCon
 } from "../Const/user";
 
 // modal visible
@@ -33,7 +35,7 @@ export function drawShow(visible, id) {
   };
 }
 
-// read all data
+// ! read all users
 const reqLoadFunc = () => {
   return {
     type: usersCon.request,
@@ -55,7 +57,7 @@ const errLoadFunc = () => {
   };
 };
 
-// delete all data
+//  ! delete user
 
 const reqDeleteFunc = id => {
   return {
@@ -71,7 +73,7 @@ const errDeleteFunc = () => {
   };
 };
 
-// edit person
+// ! edit user
 const reqEditFunc = () => {
   return {
     type: editCon.request,
@@ -105,6 +107,31 @@ export function showDataFunc(id, visible) {
   };
 }
 
+// show add draw 
+
+export function addDataFunc(visible){
+  return{
+    type:addDrawCon.visible,
+    payload:visible
+  }
+}
+
+//  ! add user 
+
+function reqAddUser(){
+  return{
+    type:addCon.request,
+    payload:true
+  }
+}
+
+function errAddUser(){
+  return{
+    type:addCon.err,
+    payload:true
+  }
+}
+
 export {
   reqLoadFunc,
   recLoadFunc,
@@ -113,5 +140,8 @@ export {
   errDeleteFunc,
   reqEditFunc,
   recEditFunc,
-  errEditFunc
+  errEditFunc,
+  reqAddUser,
+  errAddUser
 };
+

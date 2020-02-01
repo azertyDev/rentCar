@@ -6,6 +6,7 @@ import Dashboard from "../../Hoc/dashboard";
 import TableComponent from "../../Components/Table/table";
 import DrawerComponent from '../../Components/Drawer/drawer';
 import DataDrawer from '../../Components/Drawer/dataDrawer';
+import AddDrawerComponent from '../../Components/AddDrawer/addDrawer';
 class UsersComponent extends Component {
 
   componentDidMount() {
@@ -24,6 +25,7 @@ class UsersComponent extends Component {
             <TableComponent data={data}/>
             <DrawerComponent/>
             <DataDrawer/>
+            <AddDrawerComponent/>
           </Col>
         )}
       </Row>

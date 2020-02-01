@@ -73,7 +73,6 @@ class DrawerComponent extends React.Component {
 
   handleSelect(selected) {
     this.setState({ selected });
-    console.log(this.state.selected);
   }
 
   render() {

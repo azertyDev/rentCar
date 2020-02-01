@@ -1,4 +1,4 @@
-import { usersCon, deleteCon,editCon } from "../Const/user";
+import { usersCon, deleteCon,editCon ,addCon} from "../Const/user";
 const initialState = {
   pending: false,
   data: [],
@@ -7,7 +7,10 @@ const initialState = {
     id: null,
     pending: false
   },
-  edit:false
+  edit:false,
+  add:{
+    pending:false
+  }
 };
 function userReducer(state = { ...initialState }, { type, payload }) {
 
@@ -28,7 +31,10 @@ function userReducer(state = { ...initialState }, { type, payload }) {
           id: null,
           pending: false
         },
-        edit:false
+        edit:false,
+        add:{
+          pending:false
+        }
       };
     case usersCon.err:
       return {
@@ -50,6 +56,13 @@ function userReducer(state = { ...initialState }, { type, payload }) {
       return{
         ...state,
         edit:true
+      }
+    case addCon.request:
+      return{
+        ...state,
+        add:{
+          pending:payload
+        }
       }
     default:
       return {

@@ -24,7 +24,7 @@ const DashboardComponent = InitialComponent => {
               <Menu.Item key="1">
                 <Icon type="user" />
                 <span className="nav-text">
-                  <Link to="/users">Users</Link>
+                  <Link to="/admin">Users</Link>
                 </span>
               </Menu.Item>
               <Menu.Item key="2">
