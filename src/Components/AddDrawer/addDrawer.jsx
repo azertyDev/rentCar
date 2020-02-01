@@ -32,7 +32,7 @@ class AddDrawerComponent extends React.Component {
       selected: []
     };
     this.handleSelect = this.handleSelect.bind(this);
-    this.finalSave=this.finalSave.bind(this);
+    this.finalSave = this.finalSave.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -65,13 +65,20 @@ class AddDrawerComponent extends React.Component {
         notAccess.push(text.textContent);
       }
     }
+    console.log({
+      name,
+      email,
+      access,
+      notAccess,
+      cars: [...this.state.selected]
+    });
     this.props.addFunc({
-        name,
-        email,
-        access,
-        notAccess,
-        cars: [...this.state.selected]
-    })
+      name,
+      email,
+      access,
+      notAccess,
+      cars: [...this.state.selected]
+    });
   }
 
   render() {
