@@ -29,7 +29,7 @@ const DashboardComponent = InitialComponent => {
               </Menu.Item>
               <Menu.Item key="2">
                 <Icon type="video-camera" />
-                <span className="nav-text">Cars</span>
+                <span className="nav-text"><Link to="/admincars">Cars</Link></span>
               </Menu.Item>
               {localStorage.getItem('email') === "admin2@gmail.com" ? (
                 <Menu.Item key="3">
