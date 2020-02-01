@@ -2,17 +2,23 @@ import React, { Component } from "react";
 import Dashboard from "../../Hoc/dashboard";
 import { connect } from "react-redux";
 import { readAdminCarMidd } from "../../Redux/Middleware/car";
+import TableComponent from "../../Components/Table/adminCarsTable";
+
 class AdminCarsCom extends Component {
+  
   componentDidMount() {
     this.props.fetch();
   }
+
   render() {
       const {pending, data}= this.props.cars;
-      console.log('>>>>>>>>>>>>', data)
+      // console.log('>>>>>>>>>>>>', data)
     return(
         <div>
             {
-                pending ?<h1>Loading .... </h1>: <h1>data bor</h1>
+                pending ?<h1>Loading .... </h1>: (
+                  <TableComponent data={data}/>
+                )
             }
         </div>
     );
