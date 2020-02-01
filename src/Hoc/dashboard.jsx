@@ -21,16 +21,29 @@ const DashboardComponent = InitialComponent => {
           >
             <div className="logo">The Rent Car</div>
             <Menu theme="dark" mode="inline" defaultSelectedKeys={["4"]}>
-              <Menu.Item key="1">
-                <Icon type="user" />
-                <span className="nav-text">
-                  <Link to="/admin">Users</Link>
-                </span>
-              </Menu.Item>
-              <Menu.Item key="2">
-                <Icon type="video-camera" />
-                <span className="nav-text"><Link to="/admincars">Cars</Link></span>
-              </Menu.Item>
+           {
+             localStorage.getItem('email')=== 'admin@gmail.com'?   (<Menu.Item key="1">
+             <Icon type="user" />
+             <span className="nav-text">
+               <Link to="/admin">Users</Link>
+             </span>
+           </Menu.Item>):localStorage.getItem('email')==='admin2@gmail.com'?   <Menu.Item key="1">
+           <Icon type="user" />
+           <span className="nav-text">
+             <Link to="/admin2">Users</Link>
+           </span>
+         </Menu.Item>:null
+           }
+           {
+            localStorage.getItem('email')=== 'admin@gmail.com' || localStorage.getItem('email')==='admin2@gmail.com'?
+           <Menu.Item key="2">
+          <Icon type="user" />
+          <span className="nav-text">
+            <Link to="/admincars">Cars</Link>
+          </span>
+        </Menu.Item>:null
+          }
+             
               {localStorage.getItem('email') === "admin2@gmail.com" ? (
                 <Menu.Item key="3">
                   <Icon type="upload" />
