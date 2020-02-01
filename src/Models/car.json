@@ -2,7 +2,7 @@
   {
     "carId": 1,
     "model": "BMW",
-    "name":"Bmw"
+    "name":"X6"
   },
   {
     "carId": 2,
@@ -16,7 +16,7 @@
   },
   {
     "carId":4,
-    "model":"Daweo",
+    "model":"Daewoo",
     "name":"Damaz"
   }
 ]
