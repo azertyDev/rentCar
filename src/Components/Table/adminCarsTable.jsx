@@ -1,33 +1,35 @@
 import React from "react";
 import { Table, Button } from "antd";
 import { connect } from "react-redux";
-import { deleteUserMidd} from "../../Redux/Middleware/adminCars";
-import { modalShow, drawShow, showDataFunc, addDataFunc } from "../../Redux/Action/adminCars";
-import ModalComponent from "../../Components/Modal/modal";
+import {deleteAdminCar} from '../../Redux/Middleware/adminCars';
 const TableComponent = props => {
   const columns = [
     {
       title: "CarId",
-      dataIndex: "carId"
+      dataIndex: "carId",
+      width:150
     },
     {
       title: "Model",
-      dataIndex: "model"
+      dataIndex: "model",
+      width:150
     },
     {
       title: "Name",
-      dataIndex: "name"
+      dataIndex: "name",
+      width:150
     },
     {
       title:"Action",
       dataIndex:"action",
-      render:function(){
+      render:function(text, record, index){
         return(
           <span>
-              <Button>Delete</Button>
+              <Button onClick={()=>props.delete(parseInt(record.carId))} loading={props.id === record.carId && props.pending? true:false}>Delete</Button>
           </span>
         )
-      }
+      },
+      width:150
     }
   ];
 
@@ -42,11 +44,21 @@ const TableComponent = props => {
   );
 };
 
-const mapStateToProps = ({ cars }) => {
+const mapStateToProps = ({ adminCars }) => {
+  const {deleteCar} =adminCars;
+  const {id, pending} =deleteCar
   return {
-    cars
+     id,
+    pending
   };
 };
 
+const mapDispatchToProps=(dispatch)=>{
+  return{
+    delete(id){
+      dispatch(deleteAdminCar(id))
+    }
+  }
+}
 
-export default TableComponent;
+export default connect(mapStateToProps, mapDispatchToProps)(TableComponent);

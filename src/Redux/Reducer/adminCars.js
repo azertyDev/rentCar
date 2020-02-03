@@ -1,8 +1,12 @@
-import {carCon} from '../Const/adminCars';
+import {carCon, deleteCar} from '../Const/adminCars';
 
 const initialState={
     pending:false,
-    data:[]
+    data:[],
+    deleteCar:{
+        id:null,
+        pending:false
+    }
 }
 
 function adminCarReducer(state={...initialState}, {type, payload}){
@@ -16,8 +20,20 @@ function adminCarReducer(state={...initialState}, {type, payload}){
           return{
               ...state,
               data:[...payload],
-              pending:false
+              pending:false,
+              deleteCar:{
+                  id:null,
+                  pending:false
+              }
           }
+    case deleteCar.request:
+        return{
+            ...state,
+            deleteCar:{
+                id:payload,
+                pending:true
+            }
+        }
        default:
            return{
                ...state

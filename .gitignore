@@ -7,7 +7,7 @@
 ./package.json
 # testing
 /coverage
-
+./vscode
 # production
 /build
 

@@ -22,11 +22,8 @@ function recAdminCarRead(data) {
 function reqAdminCarDelete(id) {
   return {
     type: deleteCar.request,
-    payload: {
-        pending:true,
-        id
-    }
+    payload: id
   };
 }
 
-export { reqAdminCarRead, recAdminCarRead };
+export { reqAdminCarRead, recAdminCarRead, reqAdminCarDelete };
