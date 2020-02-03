@@ -68,11 +68,11 @@ const DashboardComponent = InitialComponent => {
               <div
                 style={{ padding: 24, background: "#fff", minHeight: "100%" }}
               >
-                <InitialComponent />
+                <InitialComponent {...this.props} />
               </div>
             </Content>
             <Footer style={{ textAlign: "center" }}>
-              Ant Design ©2020 Created by Akbar , Feruz , Umid
+              Ant Design ©2020 Created by
             </Footer>
           </Layout>
         </Layout>
