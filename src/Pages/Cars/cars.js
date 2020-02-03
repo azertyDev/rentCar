@@ -1,6 +1,8 @@
 import React from 'react';
 import CarsData from '../../Models/car';
 import Dashboard from '../../Hoc/dashboard';
+import CarTable from '../../Components/Table/cars';
+
 class Cars extends React.Component {
     constructor(props) {
         super(props);
@@ -9,18 +11,10 @@ class Cars extends React.Component {
         };
     }
     render() {
-        console.log(this.state.cars)
+        console.log(this.state.cars);
         return (
             <div className="Cars">
-                <ul>
-                {
-                        this.state.cars.map(car => (
-                            <li key={car.carId}>
-                                {car.model}
-                            </li>
-                        ))
-                    }         
-                </ul>
+                <CarTable data={this.state.cars}/>
             </div>
         );
     }

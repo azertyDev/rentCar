@@ -38,9 +38,7 @@ function normalizerPermision({ access, notAccess }) {
     permision2: false,
     permision3: false,
     permision4: false,
-    permision5: false,
-    permision6: false,
-    permision7: true
+    permision5: false
   };
   for (let item in permisions) {
     if (access.includes(item)) {
@@ -57,9 +55,8 @@ function normalizerPermision({ access, notAccess }) {
 const userLoadMidd = () => {
   return dispatch => {
     dispatch(reqLoadFunc());
-    setDat();
     setTimeout(() => {
-      dispatch(recLoadFunc(JSON.parse(localStorage.getItem("users"))));
+      dispatch(recLoadFunc(UserData));
     }, 500);
   };
 };
@@ -79,14 +76,15 @@ const deleteUserMidd = id => {
 
 //! edit user
 const editUserMidd = ({ id, name, email, access, notAccess, cars }) => {
-  return dispatch => {
+  return async dispatch => {
     dispatch(reqEditFunc());
     let people = readUsers();
-    let findUser = [...people].find(item => {
+    let findUser = await [...people].find(item => {
       return item.userid === id;
     });
-    let carsId = [...normalizerCarData(cars)];
+    let carsId = await [...normalizerCarData(cars)];
     let permisions = { ...normalizerPermision({ access, notAccess }) };
+    console.log(name);
     findUser = {
       ...findUser,
       name,
@@ -114,7 +112,7 @@ const editUserMidd = ({ id, name, email, access, notAccess, cars }) => {
 const addUserMidd = ({ name, email, access, notAccess, cars }) => {
   return dispatch => {
     dispatch(reqAddUser());
-    let people = readUsers();
+    let people = [...readUsers()];
     const len = people.length;
     let carsId = [...normalizerCarData(cars)];
     let permisions = { ...normalizerPermision({ access, notAccess }) };
@@ -127,9 +125,7 @@ const addUserMidd = ({ name, email, access, notAccess, cars }) => {
       },
       cars: [...carsId]
     };
-
     people.push(user);
-
     setTimeout(() => {
       dispatch(recLoadFunc(people));
     }, 500);

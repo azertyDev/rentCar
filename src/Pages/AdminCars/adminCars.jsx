@@ -11,7 +11,7 @@ class AdminCarsCom extends Component {
   }
 
   render() {
-      const {pending, data}= this.props.cars;
+    const {pending, data}= this.props.cars;
     return(
         <div>
             {

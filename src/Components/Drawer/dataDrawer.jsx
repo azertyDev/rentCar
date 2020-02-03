@@ -32,8 +32,10 @@ class DrawerData extends React.Component {
     if (!user) {
       return null;
     }
+
+    console.log(user);
     let normalizedData = { ...func.normalizer(user) };
-    let normalCarData =func.select(user);
+    let normalCarData = func.select(user);
     return (
       <div>
         <Drawer

@@ -14,7 +14,7 @@ class UsersComponent extends Component {
   }
  
   render() {
-    const { pending, data, err } = this.props.users;
+    const { pending, data } = this.props.users;
 
     return (
       <Row>

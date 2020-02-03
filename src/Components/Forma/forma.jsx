@@ -23,14 +23,14 @@ const FormaComponent = props => {
         validationSchema={SignupSchema}
       >
         {({ errors, touched }) => (
-          <Form>
+          <Form id="form_el">
           <div className="form_element">
             <Field name="name" />
-            {errors.name && touched.name ? <div>{errors.name}</div> : null}
+            <p className="error"> {errors.name && touched.name ? <div>{errors.name}</div> : null}</p>
            </div>
            <div className="form_element">
             <Field name="email" type="email" />
-            {errors.email && touched.email ? <div>{errors.email}</div> : null}
+             <p className="error">{errors.email && touched.email ? <div>{errors.email}</div> : null}</p>
             </div>
           </Form>
         )}

@@ -8,9 +8,7 @@
       "permision2": false,
       "permision3": true,
       "permision4":true,
-      "permision5":false,
-      "permision6":false,
-      "permision7":true
+      "permision5":false
     },
     "cars": [
       {
@@ -27,9 +25,7 @@
       "permision2": true,
       "permision3": true,
       "permision4":false,
-      "permision5":true,
-      "permision6":false,
-      "permision7":true
+      "permision5":true
     },
     "cars": [
       {
@@ -46,9 +42,7 @@
       "permision2": false,
       "permision3": false,
       "permision4":false,
-      "permision5":true,
-      "permision6":true,
-      "permision7":true
+      "permision5":true
     },
     "cars": [
       {
@@ -65,9 +59,7 @@
       "permision2": true,
       "permision3": true,
       "permision4":false,
-      "permision5":true,
-      "permision6":false,
-      "permision7":true
+      "permision5":true
     },
     "cars": [
       {
@@ -84,9 +76,7 @@
       "permision2": true,
       "permision3": true,
       "permision4":true,
-      "permision5":true,
-      "permision6":false,
-      "permision7":true
+      "permision5":true
     },
     "cars": [
       {
