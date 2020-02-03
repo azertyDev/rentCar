@@ -63,7 +63,20 @@ const DashboardComponent = InitialComponent => {
             </Menu>
           </Sider>
           <Layout style={{ minHeight: "70vh" }}>
-            <Header style={{ background: "#fff", padding: 0 }} />
+            <header >
+
+
+            <nav className="navbar navbar-expand-sm  navbar-dark" >
+  <form className="form-inline w-100" action="/action_page.php">
+                 <a href="#!" className="main-a"> <h1 className="main-h" style={{color: "white"}}>ADMIN PANEL</h1></a>
+        </form>
+      </nav>
+
+
+
+
+
+            </header>
             <Content style={{ margin: "24px 16px 0", background: "blue" }}>
               <div
                 style={{ padding: 24, background: "#fff", minHeight: "100%" }}

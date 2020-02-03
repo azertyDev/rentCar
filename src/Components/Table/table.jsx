@@ -40,6 +40,9 @@ const TableComponent = props => {
               </Button>
             )}
             <Button
+            style={{
+              marginLeft:'10px'
+            }}
               onClick={e => {
                 props.draw(true, record.userid);
                 e.stopPropagation();
