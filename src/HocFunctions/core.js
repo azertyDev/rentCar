@@ -1,32 +1,31 @@
-import CarData from '../Models/car.json';
-class Functions{
-    
-      normalizer(user) {
-        let { permission } = user;
-        let access = [];
-        let notAccess = [];
-        let accessId = -1;
-        for (let item in permission) {
-          console.log();
-          accessId++;
-          if (permission[item]) {
-            access.push({
-              id: `item-${accessId}`,
-              content: item
-            });
-          } else {
-            notAccess.push({
-              id: `item-${accessId}`,
-              content: item
-            });
-          }
-        }
-        return {
-          access,
-          notAccess
-        };
+import CarData from "../Models/car.json";
+class Functions {
+  
+  normalizer(user) {
+    let { permission } = user;
+    let access = [];
+    let notAccess = [];
+    let accessId = -1;
+    for (let item in permission) {
+      accessId++;
+      if (permission[item]) {
+        access.push({
+          id: `item-${accessId}`,
+          content: item
+        });
+      } else {
+        notAccess.push({
+          id: `item-${accessId}`,
+          content: item
+        });
       }
-      
+    }
+    return {
+      access,
+      notAccess
+    };
+  }
+
   select(user) {
     let reselectArray = [];
     if (Object.keys(user).length > 0) {
@@ -54,5 +53,5 @@ class Functions{
     return norma;
   }
 }
-const func=new Functions();
+const func = new Functions();
 export default func;

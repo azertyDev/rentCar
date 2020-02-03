@@ -4,13 +4,14 @@ import _ from "lodash";
 import "../Css/drawer.css";
 import CarData from "../../Models/car.json";
 import { connect } from "react-redux";
-import func from '../../HocFunctions/core';
+import func from "../../HocFunctions/core";
 import { drawShow } from "../../Redux/Action/users";
 import { editUserMidd } from "../../Redux/Middleware/userMidd";
 import FormaComponent from "../../Components/Forma/forma";
 import DragAndDrop from "../../Components/Transfer/transfer";
 import ReselectComponent from "../../Components/Reselect/reselect";
 class DrawerComponent extends React.Component {
+  static defaultProps = [];
   constructor(props) {
     super(props);
     this.state = {
@@ -46,10 +47,21 @@ class DrawerComponent extends React.Component {
   finalSave() {
     let access = [];
     let notAccess = [];
-    let name = document.getElementsByName("name")[0].value;
-    let email = document.getElementsByName("email")[0].value;
-    let transfer1 = document.getElementById("transfer").childNodes[0];
-    let transfer2 = document.getElementById("transfer").childNodes[1];
+    let name =
+      document.getElementsByName("name")[0].value ||
+      document.getElementsByName("name")[1].value;
+    let email =
+      document.getElementsByName("email")[0].value ||
+      document.getElementsByName("email")[1].value;
+    let transfer = document.getElementsByClassName("transfer");
+    let transfer1 = transfer[0].childNodes[0];
+    for (let i = 0; i < transfer.length; i++) {
+      console.log(transfer[i].childNodes[0]);
+    }
+
+    let transfer2 = document.getElementsByClassName("transfer")[0]
+      .childNodes[1];
+
     for (let i = 0; i < transfer1.childNodes.length; i++) {
       let text = transfer1.childNodes[i];
       access.push(text.textContent);
@@ -67,12 +79,14 @@ class DrawerComponent extends React.Component {
       email,
       access,
       notAccess,
-      cars: [...this.state.selected]
+      cars: [...DrawerComponent.defaultProps]
     });
   }
 
   handleSelect(selected) {
-    this.setState({ selected });
+    DrawerComponent.defaultProps = [
+      ...(Array.isArray(selected) ? selected : [])
+    ];
   }
 
   render() {
@@ -84,9 +98,9 @@ class DrawerComponent extends React.Component {
         return item.userid === draw.id;
       });
     }
-    let normalizedData = { ...func.normalizer(user)};
-    let selectArray =func.select(user);
-    let normalCarData =func.normCarData(CarData);
+    let normalizedData = { ...func.normalizer(user) };
+    let selectArray = func.select(user);
+    let normalCarData = func.normCarData(CarData);
     return (
       <div>
         <Drawer
@@ -97,21 +111,23 @@ class DrawerComponent extends React.Component {
           visible={draw.visible}
         >
           <FormaComponent user={user} />
-          <div className="title_self"><p>Access</p><p>Noaccess</p></div>
+          <div className="title_self">
+            <p>Access</p>
+            <p>Noaccess</p>
+          </div>
           <DragAndDrop normalizedData={normalizedData} />
           <ReselectComponent
             selectArray={selectArray}
             normalCarData={normalCarData}
             handleSelect={this.handleSelect}
-            selected={this.state.selected}
           />
-          <Button
+          <button
             onClick={this.finalSave}
             className="btn_self"
             loading={this.props.users.edit}
           >
             Save
-          </Button>
+          </button>
         </Drawer>
       </div>
     );
@@ -120,7 +136,7 @@ class DrawerComponent extends React.Component {
 const mapStateToProps = ({ users, modals }) => {
   return {
     users,
-    modals,
+    modals
   };
 };
 

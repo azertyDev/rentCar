@@ -12,7 +12,7 @@ class AdminCarsCom extends Component {
 
   render() {
       const {pending, data}= this.props.cars;
-      // console.log('>>>>>>>>>>>>', data)
+   
     return(
         <div>
             {

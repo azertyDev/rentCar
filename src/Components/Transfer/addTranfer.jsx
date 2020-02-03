@@ -50,7 +50,7 @@ const getListStyle = isDraggingOver => ({
   width: 250
 });
 
-class DragAndDrop extends Component {
+class AddDragAndDrop extends Component {
   state = {
     items: this.props.normalizedData.access,
     selected: this.props.normalizedData.notAccess
@@ -116,7 +116,7 @@ class DragAndDrop extends Component {
   // But in this example everything is just done in one place for simplicity
   render() {
     return (
-      <div  style={{ display: "flex" }} className="transfer">
+      <div  style={{ display: "flex" }} id="addtransfer">
         <DragDropContext onDragEnd={this.onDragEnd}>
           <Droppable droppableId="droppable">
             {(provided, snapshot) => (
@@ -180,4 +180,4 @@ class DragAndDrop extends Component {
   }
 }
 
-export default DragAndDrop;
+export default AddDragAndDrop;
