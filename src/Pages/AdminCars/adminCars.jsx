@@ -3,7 +3,7 @@ import Dashboard from "../../Hoc/dashboard";
 import { connect } from "react-redux";
 import { readAdminCarMidd } from "../../Redux/Middleware/adminCars";
 import TableComponent from "../../Components/Table/adminCarsTable";
-
+import Spinner from '../../Components/Spinner/spinner';
 class AdminCarsCom extends Component {
   
   componentDidMount() {
@@ -15,7 +15,7 @@ class AdminCarsCom extends Component {
     return(
         <div>
             {
-                pending ?<h1>Loading .... </h1>: (
+                pending ?<Spinner/>: (
                   <TableComponent data={data}/>
                 )
             }

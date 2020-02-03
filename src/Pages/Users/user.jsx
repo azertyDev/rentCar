@@ -7,6 +7,7 @@ import TableComponent from "../../Components/Table/table";
 import DrawerComponent from '../../Components/Drawer/drawer';
 import DataDrawer from '../../Components/Drawer/dataDrawer';
 import AddDrawerComponent from '../../Components/AddDrawer/addDrawer';
+import Spinner from '../../Components/Spinner/spinner';
 class UsersComponent extends Component {
 
   componentDidMount() {
@@ -19,7 +20,7 @@ class UsersComponent extends Component {
     return (
       <Row>
         {pending ? (
-          <h1>Loading...</h1>
+          <Spinner/>
         ) : (
           <Col md={24}>
             <TableComponent data={data}/>
