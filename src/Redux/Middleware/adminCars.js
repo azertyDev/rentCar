@@ -1,4 +1,4 @@
-import {reqAdminCarRead, recAdminCarRead} from '../Action/car';
+import {reqAdminCarRead, recAdminCarRead} from '../Action/adminCars';
 import CarData from '../../Models/car.json';
 
 function readAdminCarMidd(){

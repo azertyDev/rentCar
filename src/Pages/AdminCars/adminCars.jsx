@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Dashboard from "../../Hoc/dashboard";
 import { connect } from "react-redux";
-import { readAdminCarMidd } from "../../Redux/Middleware/car";
+import { readAdminCarMidd } from "../../Redux/Middleware/adminCars";
 import TableComponent from "../../Components/Table/adminCarsTable";
 
 class AdminCarsCom extends Component {
@@ -11,8 +11,7 @@ class AdminCarsCom extends Component {
   }
 
   render() {
-      const {pending, data}= this.props.cars;
-   
+    const {pending, data}= this.props.cars;
     return(
         <div>
             {

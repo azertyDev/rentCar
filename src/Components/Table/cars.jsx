@@ -1,9 +1,6 @@
 import React from "react";
 import { Table, Button } from "antd";
 import { connect } from "react-redux";
-import { deleteUserMidd} from "../../Redux/Middleware/adminCars";
-import { modalShow, drawShow, showDataFunc, addDataFunc } from "../../Redux/Action/adminCars";
-import ModalComponent from "../../Components/Modal/modal";
 const TableComponent = props => {
   const columns = [
     {
@@ -17,17 +14,6 @@ const TableComponent = props => {
     {
       title: "Name",
       dataIndex: "name"
-    },
-    {
-      title:"Action",
-      dataIndex:"action",
-      render:function(){
-        return(
-          <span>
-              <Button>Delete</Button>
-          </span>
-        )
-      }
     }
   ];
 
