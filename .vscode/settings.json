@@ -1,0 +1,11 @@
+{
+    "emmet.includeLanguages": {
+       "javascript": "javascriptreact",
+       "vue-html": "html",
+    },
+    "files.associations": {
+       "*.jsx":"javascriptreact",
+       "*.html":"html"
+    }
+   }
+ }

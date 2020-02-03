@@ -1,10 +1,65 @@
 .logo {
-  height: 32px;
-  background: rgba(255, 255, 255, 0.2);
+  height: 37px;
+  /* background: rgba(255, 255, 255, 0.2); */
   margin: 16px;
   color: white;
+  font-size: 26px;
+  display: flex;
   font-size: 24px;
 display: flex;
   align-items: center;
   justify-content: center;
+  font-family: fantasy;
+
 }
+
+.logo:hover{
+  text-shadow: 1px 1px 2px black, 0 0 1em white; 
+}
+
+ 
+.nav-text a{ 
+  font-size: 18px;
+  color: white !important;
+}
+
+
+.nav-text a:hover{ 
+  font-size: 20px;
+  text-decoration: none;
+  text-shadow: 1px 1px 2px black, 0 0 1em white; 
+}
+
+.nav-text {
+  font-size: 18px;
+  color: white !important;
+}
+.nav-text:hover{
+  font-size: 20px;
+  text-shadow: 1px 1px 2px black, 0 0 1em white; 
+  text-decoration: none;
+}
+
+.navbar{
+  background-color: #006d75;
+  padding:  0 0;
+}
+
+
+.main-h{
+  color: white;
+  font-family: inherit;
+}
+
+
+.main-a{
+  margin: 0 auto; 
+
+}
+
+.main-a:hover{
+  text-decoration: none;
+  text-shadow: 1px 1px 2px black, 0 0 1em white; 
+
+}
+
