@@ -1,4 +1,4 @@
-import {carCon} from '../Const/car';
+import {carCon} from '../Const/adminCars';
 
 const initialState={
     pending:false,
