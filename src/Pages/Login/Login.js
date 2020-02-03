@@ -15,16 +15,25 @@ function Login(props) {
   const loginFunc = e => {
     e.preventDefault();
     props.login({ ...login });
-    localStorage.setItem('email', login.email);
+    localStorage.setItem("email", login.email);
   };
-  let { pending, user} = props.logins;
+  let { pending, user } = props.logins;
   if (Object.keys(user).length > 0) {
-    if (user.email === "admin@gmail.com" && user.password === "admin00" || user.email==='admin2@gmail.com') {
-      return <Redirect to={`/${user.email.split('@')[0]}`} />
+    if (
+      (user.email === "admin@gmail.com" && user.password === "admin00") ||
+      user.email === "admin2@gmail.com"
+    ) {
+      return <Redirect to={`/${user.email.split("@")[0]}`} />;
     }
   }
-  if (Object.keys(user).length > 0 && !(user.email === "admin@gmail.com" && user.password === "admin00" || user.email==='admin2@gmail.com')) {
-      return <Redirect to={`/cars/${login.email.split('@')[0]}`} />;
+  if (
+    Object.keys(user).length > 0 &&
+    !(
+      (user.email === "admin@gmail.com" && user.password === "admin00") ||
+      user.email === "admin2@gmail.com"
+    )
+  ) {
+    return <Redirect to={`/cars/${login.email.split("@")[0]}`} />;
   }
   return (
     <div
